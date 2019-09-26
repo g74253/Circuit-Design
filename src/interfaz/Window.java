@@ -1,27 +1,42 @@
 package interfaz;
 
+// Crea una interfaz que permite el drag and drop de los items especificados. 
+
 import javax.swing.*;
 import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
 import estructuras.Components;
 import interfaz.Ventanita;
+import estructuras.Variable;
 
 @SuppressWarnings("serial")
 public class Window extends JFrame {
-	
-	JLabel pic1,pic2,pic3,pic4,pic5,pic6,pic7,pic8,pic9,pic10,pic11,pic12,pic13,pic14,pic15,pic16,pic17,pic18,pic19,pic20,pic21,pic22,pic23,pic24,pic25,k;
+	JLabel e1,e2,s1,pic1,pic2,pic3,pic4,pic5,pic6,pic7,pic8,pic9,pic10,pic11,pic12,pic13,pic14,pic15,pic16,pic17,pic18,pic19,pic20,pic21,pic22,pic23,pic24,pic25,k;
 	List<Components> l1 = new ArrayList<Components>(); 
-	JTextField texto, texto1;
+	List<Variable> l2 = new ArrayList<Variable>();
+	List<Variable> l3 = new ArrayList<Variable>();
+	JTextField texto, texto1,texto2;
 	Ventanita v;
 	public Window() {
 		super("Circuit Designer");
 		
-		
+		// Boton para tabla de verdad
 		JButton tabla = new JButton("Tabla Verdad");
+		tabla.addActionListener( new ActionListener()
+		{
+		    public void actionPerformed(ActionEvent e)
+		    {
+		    	if (l1.size() != 0)
+		    		new Ventanita("Tabla Verdad",l1,l2,l3);
+		    }
+		});
 		tabla.setBounds(10, 650, 120, 40);
 		add(tabla);
+		
 		
 		
 		JSeparator s = new JSeparator(); 
@@ -30,6 +45,9 @@ public class Window extends JFrame {
         
 		
 		k = new JLabel();
+		e1 = new JLabel("Entrada1:");
+		e2 = new JLabel("Entrada2:");
+		s1 = new JLabel("Salida1:");
 		pic1 = new JLabel();
 		pic2 = new JLabel();
 		pic3 = new JLabel();
@@ -41,6 +59,7 @@ public class Window extends JFrame {
 		pic9 = new JLabel();
 		texto = new JTextField();
 		texto1 = new JTextField();
+		texto2 = new JTextField();
 		pic10 = new JLabel();
 		pic11= new JLabel();
 		pic12 = new JLabel();
@@ -57,6 +76,9 @@ public class Window extends JFrame {
 		pic23= new JLabel();
 		pic24 = new JLabel();
 		pic25 = new JLabel();
+		e1.setBounds(150, 520, 100, 100);
+		e2.setBounds(150, 560, 100, 100);
+		s1.setBounds(150, 595, 100, 100);
 		pic1.setBounds(10, 10, 100, 100);
 		pic2.setBounds(10, 90, 100, 100);
 		pic3.setBounds(10, 170, 100, 100);
@@ -64,10 +86,12 @@ public class Window extends JFrame {
 		pic5.setBounds(10, 330, 100, 100);
 		pic6.setBounds(10, 410, 100, 100);
 		pic7.setBounds(10, 490, 100, 100);
+		
 		pic8.setBounds(180, 10, 100, 100);
 		pic9.setBounds(180, 90, 100, 100);
-		texto.setBounds(10,580,80,30);
-		texto1.setBounds(10,620,80,30);
+		texto.setBounds(220,560,80,30);
+		texto1.setBounds(220,600,80,30);
+		texto2.setBounds(220,640,80,30);
 		pic10.setBounds(180, 170, 100, 100);
 		pic11.setBounds(180, 250, 100, 100);
 		pic12.setBounds(180, 330, 100, 100);
@@ -88,36 +112,37 @@ public class Window extends JFrame {
 	
 		
 		
-		pic1.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and1.png"));
-        pic2.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\nand1.png"));
-        pic3.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\or1.png"));
-        pic4.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\nor1.png"));
-        pic5.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\not1.png"));
-        pic6.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\xor1.png"));
-        pic7.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\xnor1.png"));
-        //pic8.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic9.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic10.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic11.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic12.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic13.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic14.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic15.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic16.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic17.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic18.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic19.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic20.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic21.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic22.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic23.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic24.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
-        pic25.setIcon(new ImageIcon("C:\\Users\\grero\\Desktop\\fotos progra 1\\and.png"));
+		pic1.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\and1.png"));
+        pic2.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\nand1.png"));
+        pic3.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\or1.png"));
+        pic4.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\nor1.png"));
+        pic5.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\not1.png"));
+        pic6.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\xor1.png"));
+        pic7.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\xnor1.png"));
+        pic8.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic9.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic10.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic11.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic12.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic13.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic14.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic15.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic16.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic17.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic18.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic19.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic20.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic21.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic22.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic23.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic24.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
+        pic25.setIcon(new ImageIcon("C:\\Users\\grero\\eclipse-workspace\\Circuit Designer\\src\\imagenes\\blanc.png"));
         
-        
+        // Esto permite el drag and drop y la adicion de archivos a la lista.
         MouseListener ml = new MouseListener() {
 
-            @Override
+
+			@Override
             public void mouseClicked(MouseEvent e) {
             }
 
@@ -135,27 +160,32 @@ public class Window extends JFrame {
                 	System.out.println("yes");
                 }else {
                 	System.out.println("no");}
-               
+                
+               l2.add(new Variable(texto.getText(),-1));
+               l2.add(new Variable(texto1.getText(),-1));
+               l3.add(new Variable(texto2.getText(),-1));
+             
                 if (e.getXOnScreen() >= 10 && e.getXOnScreen() <= 110) {
                 	if (e.getYOnScreen() >= 10 && e.getYOnScreen() <= 110) {
-                		l1.add(new Components("and",texto.getText(),texto1.getText(),"C"));
+                		l1.add(new Components("and",texto.getText(),texto1.getText(),texto2.getText()));
                 	}else if (e.getYOnScreen() >= 90 && e.getYOnScreen() <= 190) {
-                		l1.add(new Components("nand",texto.getText(),texto1.getText(),"C"));
+                		l1.add(new Components("nand",texto.getText(),texto1.getText(),texto2.getText()));
                 	}else if (e.getYOnScreen() >= 170 && e.getYOnScreen() <= 270) {
-                		l1.add(new Components("or",texto.getText(),texto1.getText(),"C"));
+                		l1.add(new Components("or",texto.getText(),texto1.getText(),texto2.getText()));
                 	}else if (e.getYOnScreen() >= 250 && e.getYOnScreen() <= 350) {
-                		l1.add(new Components("nor",texto.getText(),texto1.getText(),"C"));
+                		l1.add(new Components("nor",texto.getText(),texto1.getText(),texto2.getText()));
                 	}else if (e.getYOnScreen() >= 330 && e.getYOnScreen() <= 430) {
-                		l1.add(new Components("not",texto.getText(),texto1.getText(),"C"));
+                		l1.add(new Components("not",texto.getText(),texto1.getText(),texto2.getText()));
                 	}else if (e.getYOnScreen() >= 410 && e.getYOnScreen() <= 510) {
-                		l1.add(new Components("xor",texto.getText(),texto1.getText(),"C"));
+                		l1.add(new Components("xor",texto.getText(),texto1.getText(),texto2.getText()));
                 	}else if (e.getYOnScreen() >= 490 && e.getYOnScreen() <= 590) {
-                		l1.add(new Components("xnor",texto.getText(),texto1.getText(),"C"));
+                		l1.add(new Components("xnor",texto.getText(),texto1.getText(),texto2.getText()));
                 	}
                 }
-                if (pic8.getIcon() != null) {
-                	System.out.print("huhu");
-                }
+                texto.setText("");
+                texto1.setText("");
+                texto2.setText("");
+                
             }
 
             @Override
@@ -222,7 +252,9 @@ public class Window extends JFrame {
         pic23.setTransferHandler(new TransferHandler("icon"));
         pic24.setTransferHandler(new TransferHandler("icon"));
         pic25.setTransferHandler(new TransferHandler("icon"));
-        
+        add(e1);
+        add(e2);
+        add(s1);
         add(pic1);
         add(pic2);
         add(pic3);
@@ -235,6 +267,7 @@ public class Window extends JFrame {
         add(pic9);
         add(texto);
         add(texto1);
+        add(texto2);
         add(pic10);
         add(pic11);
         add(pic12);
@@ -262,6 +295,8 @@ public class Window extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
+	
+	// Esta funcion es el Main
 	public static void main(String[] args) {
 		new Window();
 

@@ -1,5 +1,7 @@
 package estructuras;
 
+// Es una clase de los componentes utilizados en el drag and drop.
+
 public class Components {
 	
 	String name, entrada1,entrada2,salida;
@@ -12,9 +14,7 @@ public class Components {
 		this.salida = salida;
 		
 	}
-
-	public void data() {
-		System.out.print(this.name + " " + this.entrada1 + " " + this.entrada2 + " " + this.salida);
+	public String getName() {
+		return this.name;
 	}
-	
 }
